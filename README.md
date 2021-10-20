@@ -29,3 +29,36 @@
 
 # Explanation
 > The 2 images are the logos of my favorite games the other 3 are linked to the logos of those games as well to show what they look like and see if you are interested in playing those games. Fortnite can not be played on IOS due to a problem with the company Apple against the creators company Epic Games. The rest of the games can be played on both platforms of IOS and Android. Fortnite, PubG and Genshin Impact can also be played on laptops or computers if you want to play on them there.
+
+# Coding
+> This is what actually got me into coding because I actually always wanted to know how certain elements of the game work behind the scenes of the 3D or 2D characters.
+> Like this code here, it allows to insert any amount of numbers and automatically creates a new file:
+import random
+
+def generateRandomNumber(min_num,max_num):
+    
+    randomNumber = random.randint(min_num,max_num)
+    return randomNumber
+def main():
+    
+    while True:
+        try:
+            numberOfRandomNumbers = int(input("How many numbers" + \
+                                      " should the file hold?: "))
+            min_num = float(input("What is the Minimum number? "))
+            max_num = float(input("What is the Maximum number? "))
+            fileToBeWritten = open("randomNumbers.txt","w")
+            if (numberOfRandomNumbers < 0):
+                print("Positive integers only")
+                break 
+        except Exception as error:
+            print("There was an error", error)
+        else:
+            for randomNumberCount in range(1, numberOfRandomNumbers + 1):
+                randomNumber = generateRandomNumber(min_num,max_num) 
+                fileToBeWritten.write(str(randomNumber)+ "\n")
+                
+
+        print(numberOfRandomNumbers,  "numbers have been written in the file.")
+        break
+main()
